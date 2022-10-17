@@ -24,7 +24,7 @@ import {
           <CardMedia
             component="img"
             alt={product.name}
-            height="260"
+            height="320"
             className="card-image"
             image={product.image.url}
             title={product.name}

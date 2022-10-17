@@ -27,9 +27,10 @@ import {
                 color="inherit"
               >
                 <img
-                  src="https://github.com/DwinaTech/public-images/blob/main/DwinaTech-brand.png?raw=true"
-                  alt="DwinaTech logo"
-                  height="25px"
+                  src="https://github.com/AlvinPech/pinturas-app/blob/develop/src/images/cropped-logoDonatela02.png?raw=true"
+                  alt="donatella logo"
+                  height="128px"
+                  weight="30px"
                   className="logo"
                 />
               </Typography>
