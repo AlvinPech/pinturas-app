@@ -1,6 +1,7 @@
 import Product from "../product";
 import { Grid, Container } from "@mui/material";
 import Banner from "../banner";
+import "./style.css";
 
 const Products = ({ products, addProduct }) => {
     return(
