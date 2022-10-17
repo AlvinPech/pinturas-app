@@ -1,9 +1,11 @@
 import Product from "../product";
 import { Grid, Container } from "@mui/material";
+import Banner from "../banner";
 
 const Products = ({ products, addProduct }) => {
     return(
         <div>
+            <Banner/>
             <Container id="products">
             <Grid container spacing={4}>
             {products.map((product) => (
