@@ -4,26 +4,62 @@ import {commerce} from "./lib/commerce"
 import Products from "./components/products";
 import NavBar from "./components/navbar";
 import Footer from "./components/footer";
-
+import Basket from "./components/basket";
 
 const App = () => {
   const [products, setProducts] = useState([]);
+  const [basketData, setBasketData] = useState({});
 
   const fetchProducts = async () => {
     const response = await commerce.products.list();
     setProducts((response && response.data) || []);
   };
 
+  const fetchBasketData = async () => {
+    const response = await commerce.cart.retrieve();
+    setBasketData(response);
+  };
+
+  const addProduct = async (productId, quantity) => {
+    const response = await commerce.cart.add(productId, quantity);
+    setBasketData(response.cart);
+  };
+
+  const updateProduct = async (productId, quantity) => {
+    const response = await commerce.cart.update(productId, { quantity });
+    setBasketData(response.cart);
+  };
+
+  const handleEmptyBasket = async () => {
+    const response = await commerce.cart.empty();
+    setBasketData(response.cart);
+  };
+
+  const RemoveItemFromBasket = async (itemId) => {
+    const response = await commerce.cart.remove(itemId);
+    setBasketData(response.cart);
+  };
+
   useEffect(() => {
     fetchProducts();
+    fetchBasketData();
   }, []);
 
   console.log({products})
   return (<Router>
     <div>
-      <NavBar/>
+      <NavBar basketItems={basketData.total_items}/>
       <Routes>
-        <Route exact path="/" element = {<Products products={products}/>}/>
+        <Route exact path="/" element = {<Products products={products} addProduct={addProduct}/> }/>
+
+        <Route exact path="/basket" element = {<Basket
+              basketData={basketData}
+              updateProduct={updateProduct}
+              handleEmptyBasket={handleEmptyBasket}
+              RemoveItemFromBasket={RemoveItemFromBasket}
+            />}/>
+            
+        
       </Routes>
       <Footer/>
     </div>
