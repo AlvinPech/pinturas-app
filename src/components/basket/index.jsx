@@ -2,8 +2,8 @@ import { Grid, Button, Container } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import CustomCard from "../customCard";
-//import Spinner from "../spinner";
-//import Banner from "./banner";
+import Spinner from "../spinner";
+import Banner from "./Banner";
 
 import "./style.css";
 
@@ -19,9 +19,9 @@ const Basket = ({
       setShowSpinner(false);
     }, 2000);
     if (showSpinner) {
-     // return <Spinner />;
+      return <Spinner />;
     }
-    //return <Banner />;
+    return <Banner />;
   };
 
   if (!basketData.line_items || !basketData.line_items.length) return loading();

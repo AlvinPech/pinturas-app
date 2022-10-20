@@ -40,6 +40,11 @@ const App = () => {
     setBasketData(response.cart);
   };
 
+  const refreshBasket = async () => {
+    const newBasketData = await commerce.cart.refresh();
+    setBasketData(newBasketData);
+  };
+
   useEffect(() => {
     fetchProducts();
     fetchBasketData();
@@ -48,11 +53,19 @@ const App = () => {
   console.log({products})
   return (<Router>
     <div>
-      <NavBar basketItems={basketData.total_items}/>
+      <NavBar
+          basketItems={basketData.total_items}
+          totalCost={
+            (basketData.subtotal &&
+              basketData.subtotal.formatted_with_symbol) ||
+            "00.00"
+          }/>
+        
       <Routes>
         <Route exact path="/" element = {<Products products={products} addProduct={addProduct}/> }/>
 
-        <Route exact path="/basket" element = {<Basket
+        <Route exact path="/basket" element = {
+        <Basket
               basketData={basketData}
               updateProduct={updateProduct}
               handleEmptyBasket={handleEmptyBasket}
