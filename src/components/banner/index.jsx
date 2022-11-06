@@ -12,7 +12,7 @@ const Banner = () => {
               Bienvenido a Donatella Shop
             </Typography>
             <Button className="shopping-button" href="#products">
-              Shopping
+              Comprar
             </Button>
           </Grid>
           <Grid className="brand" item sm={6}>

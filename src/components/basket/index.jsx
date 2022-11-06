@@ -48,7 +48,7 @@ const Basket = ({
           variant="contained"
           onClick={handleEmptyBasket}
         >
-          Empty Basket
+          Limpiar Carrito
         </Button>
 
         <Button

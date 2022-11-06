@@ -23,6 +23,7 @@ const App = () => {
   const addProduct = async (productId, quantity) => {
     const response = await commerce.cart.add(productId, quantity);
     setBasketData(response.cart);
+
   };
 
   const updateProduct = async (productId, quantity) => {
@@ -44,6 +45,10 @@ const App = () => {
     const newBasketData = await commerce.cart.refresh();
     setBasketData(newBasketData);
   };
+
+  function refreshPage() {
+    window.location.reload(false);
+  }
 
   useEffect(() => {
     fetchProducts();

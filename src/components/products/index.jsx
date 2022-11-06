@@ -17,8 +17,8 @@ const Products = ({ products, addProduct }) => {
             </Grid>
       </Container>
         </div>
-    )
-}
+    );
+};
 
 
 export default Products;

@@ -70,7 +70,7 @@ import {
                   addProduct(product.id, 1);
                 }}
               >
-                <ShoppingCart /> Add to basket
+                <ShoppingCart /> Agregar a Carrito
               </Button>
             </>
           )}
@@ -84,7 +84,7 @@ import {
                   RemoveItemFromBasket(product.id);
                 }}
               >
-                Remove
+                Eliminar
               </Button>
               <>
                 <Button
