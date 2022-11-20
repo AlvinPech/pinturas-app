@@ -5,6 +5,8 @@ import Products from "./components/products";
 import NavBar from "./components/navbar";
 import Footer from "./components/footer";
 import Basket from "./components/basket";
+import ProductView from "./components/ProductView";
+
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -22,7 +24,7 @@ const App = () => {
 
   const addProduct = async (productId, quantity) => {
     const response = await commerce.cart.add(productId, quantity);
-    setBasketData(response.cart);
+    setBasketData(response);
 
   };
 
@@ -68,6 +70,7 @@ const App = () => {
         
       <Routes>
         <Route exact path="/" element = {<Products products={products} addProduct={addProduct}/> }/>
+        <Route exact path="/product-view/:id" element = {<ProductView addProduct={addProduct} />}/>
 
         <Route exact path="/basket" element = {
         <Basket
