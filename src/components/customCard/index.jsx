@@ -8,6 +8,7 @@ import {
     Button,
   } from "@mui/material";
   import { ShoppingCart } from "@mui/icons-material";
+  import { Link } from "react-router-dom";
 
   import "./style.css";
   
@@ -20,6 +21,7 @@ import {
   }) => {
     return (
       <Card className="custom-card">
+      <Link to={`product-view/${basket ? product.product_id : product.id}`}>
         <CardActionArea>
           <CardMedia
             component="img"
@@ -40,6 +42,8 @@ import {
             </Typography>
           </CardContent>
         </CardActionArea>
+        <Typography variant="h3">View</Typography>
+      </Link>
         {basket && (
           <CardActions>
             <Typography
