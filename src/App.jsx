@@ -22,7 +22,7 @@ const App = () => {
 
   const addProduct = async (productId, quantity) => {
     const response = await commerce.cart.add(productId, quantity);
-    setBasketData(response.cart);
+    setBasketData(response);
 
   };
 
